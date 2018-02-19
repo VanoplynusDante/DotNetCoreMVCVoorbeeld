@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using MyHowest;
 
 namespace DotNetCoreMVCVoorbeeld.Controllers
 {
@@ -24,6 +25,18 @@ namespace DotNetCoreMVCVoorbeeld.Controllers
 
             }
             
+            return View();
+        }
+
+        public ViewResult Student()
+        {
+            List<Student> studenten = new List<Student>
+            {
+                new Student{id = 1, Naam = "Jef", AfstudeerGraad=Graad.Voldoening },
+                new Student{id = 2, Naam = "Bart", AfstudeerGraad=Graad.Onderscheiding },
+            };
+
+            ViewBag.Studenten = studenten;
             return View();
         }
     }
